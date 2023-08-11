@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    background-color: rgb(246, 248, 252);
+}
+
+.infoContainer {
+    min-width: 150px;
+    min-height: 350px;
+    max-width: 310px;
+    background-color: white;
+    border-radius: 24px 24px 24px 24px;
+    margin-top: -50px;
+    z-index: 0;
+    padding-top: 56px;
+}
+
+
+.pokemonCard {
+    display: flex;
+    flex-direction: column;
+    min-height: 350px;
+    max-width: 310px;
+    border-radius: 24px 24px 24px 24px;
+}
+
+
+.pokemonArt {
+    max-width: 200px;
+    max-height: 200px;
+    margin-left: 64px;
+    z-index: 1;
+}
+
+.nav-arrows{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 24px;
+    gap: 200px
+}
+
+.icon {
+    width: 16px;
+    filter:invert();
+}
+
+.icon:hover{
+    cursor: pointer;
+    
+}
+
+.cardHeader {
+display: flex;
+align-items: center;
+
+}
+
+.pokemon-number{
+    margin-left: 69.3px
+}
+
+.name-and-type {
+    
+}
+
+.pokemon {
+    background-color: rgb(251,108,108);
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border-radius: 24px 24px 0 0;
+}
+
+.ml-16 {
+    margin-left: 16px;
+}
+
+.mt-24 {
+    margin-top: 24px;
+}
+
+.col-w {
+    color: white;
+}
+
+
+.type {
+    background-color: rgba(255, 255, 255, 0.151);
+    padding: 4px 16px 4px 16px;
+    border-radius: 24px
+}
+
