@@ -1,12 +1,19 @@
 body {
     margin: 0;
     background-color: rgb(246, 248, 252);
+    font-family: 'Roboto';
 }
 
+main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+
 .infoContainer {
-    min-width: 150px;
     min-height: 350px;
-    max-width: 310px;
+    width: 375px;
     background-color: white;
     border-radius: 24px 24px 24px 24px;
     margin-top: -50px;
@@ -19,7 +26,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 350px;
-    max-width: 310px;
+    width: 375px;
     border-radius: 24px 24px 24px 24px;
 }
 
@@ -27,15 +34,21 @@ body {
 .pokemonArt {
     max-width: 200px;
     max-height: 200px;
-    margin-left: 64px;
+    align-self: center;
     z-index: 1;
+    filter: saturate(2.1);
+}
+
+.tabs{
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .nav-arrows{
     display: flex;
     justify-content: space-around;
     padding-top: 24px;
-    gap: 200px
+    gap: 265px
 }
 
 .icon {
@@ -45,17 +58,18 @@ body {
 
 .icon:hover{
     cursor: pointer;
-    
+
 }
 
 .cardHeader {
 display: flex;
 align-items: center;
-
+justify-content: space-evenly;
+gap: 88px;
 }
 
 .pokemon-number{
-    margin-left: 69.3px
+    
 }
 
 .name-and-type {
