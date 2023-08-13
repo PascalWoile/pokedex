@@ -6,15 +6,15 @@
     <title>Pokédex</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="fonts.css">
-    <script src=""></script>
+    <script src="script.js"></script>
   </head>
-  <body onload="">
+  <body onload="loadPokemon()">
     <main>
         <div class="pokemonCard">
             <div class="pokemon">
               <div class="nav-arrows">
-                  <img class="icon" src="./img/arrow-left-solid.svg" alt="">
-                  <img class="icon" src="./img/arrow-right-solid.svg" alt="">
+                  <img class="icon filt-i" src="./img/icon/arrow-left-solid.svg" alt="">
+                  <img class="icon filt-i" src="./img/icon/arrow-right-solid.svg" alt="">
               </div>
               <div class="cardHeader">
                 <div class="name-and-type">
@@ -31,124 +31,20 @@
             </div>
             <div class="infoContainer">
               <div class="tabs">
-                  <span class="">About</span>
-                  <span class="">Base Stats</span>
-                  <span class="">Evolution</span>
-                  <span class="">Moves</span>
+                  <span class="underline-on-hover">About</span>
+                  <span class="underline-on-hover">Base Stats</span>
+                  <span class="underline-on-hover">Evolution</span>
+                  <span class="underline-on-hover">Moves</span>
               </div>
-              <div id="details"></div>
-            </div>
-          </div>
-
-          <div class="pokemonCard">
-            <div class="pokemon">
-              <div class="nav-arrows">
-                  <img class="icon" src="./img/arrow-left-solid.svg" alt="">
-                  <img class="icon" src="./img/arrow-right-solid.svg" alt="">
+              <div class="details p-16">
+                <span class="">From the time it is born, a flame burns at the tip of its tail. Its life would end if the flame were to go out.</span>
               </div>
-              <div class="cardHeader">
-                <div class="name-and-type">
-                  <h2 class="col-w">Name</h2>
-                  <span class="type col-w">Type 1</span>
-                  <span class="type col-w">Type 2</span>
-                </div>
-                <span class="pokemon-number col-w">#004</span>
-              </div>
-              <img
-                class="pokemonArt"
-                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
-              />
-            </div>
-            <div class="infoContainer">
-              <div class="tabs">
-                  <span class="">About</span>
-                  <span class="">Base Stats</span>
-                  <span class="">Evolution</span>
-                  <span class="">Moves</span>
-              </div>
-              <div id="details"></div>
-            </div>
-          </div>
-
-          <div class="pokemonCard">
-            <div class="pokemon">
-              <div class="nav-arrows">
-                  <img class="icon" src="./img/arrow-left-solid.svg" alt="">
-                  <img class="icon" src="./img/arrow-right-solid.svg" alt="">
-              </div>
-              <div class="cardHeader">
-                <div class="name-and-type">
-                  <h2 class="col-w">Name</h2>
-                  <span class="type col-w">Type 1</span>
-                  <span class="type col-w">Type 2</span>
-                </div>
-                <span class="pokemon-number col-w">#004</span>
-              </div>
-              <img
-                class="pokemonArt"
-                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
-              />
-            </div>
-            <div class="infoContainer">
-              <div class="tabs">
-                  <span class="">About</span>
-                  <span class="">Base Stats</span>
-                  <span class="">Evolution</span>
-                  <span class="">Moves</span>
-              </div>
-              <div id="details">
-                <div class="about">
-                    <div>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-                <div class="breeding"></div>
+              <div class="p-16">
+                <img src="./img/icon/xmark-solid.svg" class="icon button p-8 col-w">
               </div>
             </div>
           </div>
 
-    <div class="pokemonCard">
-        <div class="pokemon">
-          <div class="nav-arrows">
-              <img class="icon" src="./img/arrow-left-solid.svg" alt="">
-              <img class="icon" src="./img/arrow-right-solid.svg" alt="">
-          </div>
-          <div class="cardHeader">
-            <div class="name-and-type">
-              <h2 class="col-w">Name</h2>
-              <span class="type col-w">Type 1</span>
-              <span class="type col-w">Type 2</span>
-            </div>
-            <span class="pokemon-number col-w">#004</span>
-          </div>
-          <img
-            class="pokemonArt"
-            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
-          />
-        </div>
-        <div class="infoContainer">
-          <div class="tabs">
-              <span class="">About</span>
-              <span class="">Base Stats</span>
-              <span class="">Evolution</span>
-              <span class="">Moves</span>
-          </div>
-          <div id="details"></div>
-        </div>
-      </div>
     </main>
   </body>
 </html>

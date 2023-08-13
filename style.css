@@ -2,6 +2,13 @@ body {
     margin: 0;
     background-color: rgb(246, 248, 252);
     font-family: 'Roboto';
+    background-image: url(./img/pokeball-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: 102%;
+}
+
+a{
+    text-decoration: none;
 }
 
 main{
@@ -12,13 +19,14 @@ main{
 
 
 .infoContainer {
-    min-height: 350px;
+    max-height: 350px;
     width: 375px;
     background-color: white;
     border-radius: 24px 24px 24px 24px;
     margin-top: -50px;
     z-index: 0;
     padding-top: 56px;
+    transition: transform, 0.5s;
 }
 
 
@@ -27,6 +35,7 @@ main{
     flex-direction: column;
     min-height: 350px;
     width: 375px;
+    margin-top: 16px;
     border-radius: 24px 24px 24px 24px;
 }
 
@@ -42,6 +51,7 @@ main{
 .tabs{
     display: flex;
     justify-content: space-evenly;
+    margin-bottom: 24px;
 }
 
 .nav-arrows{
@@ -53,12 +63,23 @@ main{
 
 .icon {
     width: 16px;
+    height:16px;
+    
+}
+
+.filt-i{
     filter:invert();
 }
 
 .icon:hover{
     cursor: pointer;
 
+}
+
+.button{
+    border: solid 1px;
+    border-radius: 8px;
+    background-color: rgba(255, 0, 0, 0.749);
 }
 
 .cardHeader {
@@ -77,7 +98,12 @@ gap: 88px;
 }
 
 .pokemon {
-    background-color: rgb(251,108,108);
+    background-image: url(./img/pokeball-w.png);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-blend-mode: soft-light;
+    background-position: 168%;
+    background-color: rgba(251,108,108);
     min-height: 300px;
     display: flex;
     flex-direction: column;
@@ -86,17 +112,41 @@ gap: 88px;
 }
 
 .ml-16 {
-    margin-left: 16px;
+    margin-left: 16px !important;
 }
 
 .mt-24 {
-    margin-top: 24px;
+    margin-top: 24px !important;
+}
+
+.mb-16{
+    margin-bottom: 16px !important;
 }
 
 .col-w {
-    color: white;
+    color: white !important;
 }
 
+.p-16{
+    padding: 16px !important;
+}
+
+.p-8{
+    padding: 8px !important
+}
+
+.underline-on-hover{
+    border-bottom: solid 3px rgba(0, 0, 255, 0); 
+}
+
+.underline-on-hover:hover{
+    border-bottom: solid 3px rgb(53, 53, 202); 
+    cursor:pointer;
+}
+
+.underline-on-hover.active{
+    border-bottom: solid 3px rgb(53, 53, 202);
+}
 
 .type {
     background-color: rgba(255, 255, 255, 0.151);
@@ -104,3 +154,10 @@ gap: 88px;
     border-radius: 24px
 }
 
+
+.details{
+    border: double;
+    margin: 16px !important;
+    border-radius: 8px;
+    background-color: rgba(0,0,0,0.1);
+}
