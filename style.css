@@ -1,10 +1,8 @@
 body {
     margin: 0;
-    background-color: rgb(246, 248, 252);
     font-family: 'Roboto';
     background-image: url(./img/pokeball-bg.jpg);
     background-repeat: no-repeat;
-    background-size: 102%;
 }
 
 a{
@@ -19,7 +17,9 @@ main{
 
 
 .infoContainer {
-    max-height: 350px;
+    height: 304px;
+    display: flex;
+    flex-direction: column;
     width: 375px;
     background-color: white;
     border-radius: 24px 24px 24px 24px;
@@ -27,6 +27,7 @@ main{
     z-index: 0;
     padding-top: 56px;
     transition: transform, 0.5s;
+    justify-content: space-between;
 }
 
 
@@ -39,6 +40,46 @@ main{
     border-radius: 24px 24px 24px 24px;
 }
 
+.d-flex{
+display:flex !important;
+}
+
+.flex-dir-col{
+    flex-direction: column !important;
+}
+
+.justify-center{
+    justify-content: center !important;
+}
+
+.justify-sb{
+    justify-content: space-between !important;
+}
+
+.align-center{
+    align-items: center !important;
+}
+
+.align-end{
+    align-items: end;
+}
+
+.about{
+    padding: 0 8px 0 16px;
+}
+
+.t-end{
+    text-align: end;
+}
+
+.t-center{
+    text-align: center;
+}
+
+table{
+    border-spacing: 8px;
+    text-align: end;
+}
 
 .pokemonArt {
     max-width: 200px;
@@ -52,6 +93,8 @@ main{
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 24px;
+    margin-left: -16px;
+    margin-right: -16px;
 }
 
 .nav-arrows{
@@ -68,7 +111,7 @@ main{
 }
 
 .filt-i{
-    filter:invert();
+    filter:invert() !important;
 }
 
 .icon:hover{
@@ -89,14 +132,6 @@ justify-content: space-evenly;
 gap: 88px;
 }
 
-.pokemon-number{
-    
-}
-
-.name-and-type {
-    
-}
-
 .pokemon {
     background-image: url(./img/pokeball-w.png);
     background-size: 60%;
@@ -113,6 +148,10 @@ gap: 88px;
 
 .ml-16 {
     margin-left: 16px !important;
+}
+
+.mt-16{
+    margin-top: 16px !important;
 }
 
 .mt-24 {
@@ -157,7 +196,28 @@ gap: 88px;
 
 .details{
     border: double;
-    margin: 16px !important;
+    margin: 8px 16px 0px 16px !important;
     border-radius: 8px;
     background-color: rgba(0,0,0,0.1);
+    height: 64px;
+    overflow: scroll;
+}
+
+.genus{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.shiny{
+    align-items: center;
+}
+
+.closeContainer{
+    padding: 0 16px;
+    height: 75px;
+}
+
+.flavorText{
+    font-size: 16px !important;
 }
