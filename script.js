@@ -1,6 +1,33 @@
 const loadedPokemon = 30;
 const pokemonArray = [];
-  
+ 
+const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['HP', 'ATTACK', 'DEFENSE', 'SP-ATK', 'SP-DEF', 'SPEED'],
+      datasets: [{
+        backgroundColor: ['green', 'red', 'orange', 'purple', 'yellow', 'blue'],
+        data: [39, 52, 43, 60, 50, 65],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      plugins: {
+        legend: {
+          display: false,
+        }
+      },
+      indexAxis: 'y',
+      scales: {
+        x: {
+            suggestedMin: 0,
+            suggestedMax: 255
+        }
+    }
+  }});
+
 
 async function loadAllPokemon(){
     for (let i = 0; i < loadedPokemon; i++) {

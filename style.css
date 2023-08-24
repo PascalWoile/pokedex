@@ -1,12 +1,18 @@
 body {
+    height: 90vh;
     margin: 0;
     font-family: 'Roboto';
-    background-image: url(./img/pokeball-bg.jpg);
-    background-repeat: no-repeat;
+    background-image: url(./img/space-bg.jpg);
+    background-size: cover;
 }
 
 a{
     text-decoration: none;
+}
+
+#myChart{
+    width: 350px !important;
+
 }
 
 main{
@@ -17,13 +23,13 @@ main{
 
 
 .infoContainer {
-    height: 304px;
+    height: 319px;
     display: flex;
     flex-direction: column;
     width: 375px;
     background-color: white;
     border-radius: 24px 24px 24px 24px;
-    margin-top: -50px;
+    margin-top: -66px;
     z-index: 0;
     padding-top: 56px;
     transition: transform, 0.5s;
@@ -38,6 +44,23 @@ main{
     width: 375px;
     margin-top: 16px;
     border-radius: 24px 24px 24px 24px;
+}
+
+.smallCard{
+    height: 300px;
+    width: 250px;
+    background-color: blueviolet;
+    margin: 16px 8px;
+}
+
+header{
+    background-color: cadetblue;
+    width: 100%;
+    height: 200px
+}
+
+.pos-abs{
+    position: absolute !important;
 }
 
 .d-flex{
@@ -61,7 +84,11 @@ display:flex !important;
 }
 
 .align-end{
-    align-items: end;
+    align-items: flex-end;
+}
+
+.align-start{
+    align-items: flex-start;
 }
 
 .about{
@@ -86,15 +113,18 @@ table{
     max-height: 200px;
     align-self: center;
     z-index: 1;
-    filter: saturate(2.1);
+}
+
+.evoArt{
+    max-width: 70px;
+    max-height: 70px;
 }
 
 .tabs{
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 24px;
-    margin-left: -16px;
-    margin-right: -16px;
+    margin-top: 5px;
 }
 
 .nav-arrows{
@@ -142,7 +172,6 @@ gap: 88px;
     min-height: 300px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
     border-radius: 24px 24px 0 0;
 }
 
@@ -175,12 +204,33 @@ gap: 88px;
 }
 
 .underline-on-hover{
-    border-bottom: solid 3px rgba(0, 0, 255, 0); 
+    display: inline-block;
+    transition: all 0.5s ease-in-out;
+    position: relative;
+}
+
+.underline-on-hover::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 20px;
+    width: 100%;
+    height: 3px;
+    background: rgb(53, 53, 202);
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.225s ease-in-out;
 }
 
 .underline-on-hover:hover{
-    border-bottom: solid 3px rgb(53, 53, 202); 
     cursor:pointer;
+}
+
+.underline-on-hover:hover::after{
+    transform: scaleX(1);
+    transform-origin: left;
+   
 }
 
 .underline-on-hover.active{
@@ -220,4 +270,46 @@ gap: 88px;
 
 .flavorText{
     font-size: 16px !important;
+}
+
+.evolutionTree{
+    gap: 16px;
+    flex-wrap: wrap;
+    height: 100px;
+}
+
+.evoTo{
+    height: 30px;
+}
+
+.movesContainer{
+    display: flex;
+    text-align: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 3px 24px;
+    padding: 8px;
+    max-height: 127px;
+    overflow: scroll;
+    border: double;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.movesContainer span{
+    background-color: rgb(0, 129, 169);
+    border: solid 3px black;
+    border-radius: 16px;
+    padding: 8px;
+    color: white;
+}
+
+.movesHeading{
+    text-align: center;
+    margin-left: 24px;
+    font-size: 17px;
+}
+
+
+.gap5{
+    gap: 5px;
 }
