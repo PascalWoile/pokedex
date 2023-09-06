@@ -8,31 +8,39 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="fonts.css" />
   </head>
-  <body onload="loadPokemon()">
-    <header></header>
+  <body id="body" onload="loadingScreen()">
+    <div id="loadingScreen">
+      <div id="loadingContent">
+        <span>loading...</span>
+        <img class="lds-hourglass" id="loaderBall" src="./img/icon/pokeball-loader.png" alt="">
+      </div>
+    </div>
+    <header id="header">
+      <div>
+        <img class="pkmnHeadline" src="./img/PokeDexHead.png" alt="">
+        <div>
+          <input type="text" placeholder="search for Pokémon...">
+          <button type="submit">Search</button>
+        </div>
+      </div>
+        <img class="ballIcon" src="./img/icon/favicon.png" alt="">
+        <div  class="loadingInsideContainer d-flex justify-center  flex-dir-col gap5">
+          <div id="clickBlocker" class="d-none">loading...</div>
+          <img onclick="loadMorePokemon()" id="miniLoader" class="loadIcon" src="./img/icon/reload-anim.gif" alt="">
+          <span>load more Pokémon</span>
+        </div>
+    </header>
+    <div id="detailedViewContent" class="d-none">
+
+    </div>
+
     <main id="mainContent">
-      <div class="smallCard"></div>
-      <div class="smallCard"></div>
-      <div class="smallCard"></div>
-      <div class="smallCard"></div>
-      <div class="smallCard"></div>
-      <div class="smallCard"></div>
-      <div class="smallCard"></div>
-      <div class="smallCard"></div>
-      <div class="smallCard"></div>
-      <div class="smallCard"></div>
-      <div class="smallCard"></div>
-      <div class="smallCard"></div>
-      <div class="smallCard"></div>
-      <div class="smallCard"></div>
-      <div class="smallCard"></div>
-      <div class="smallCard"></div>
-      <div class="smallCard"></div>
-      <div class="smallCard"></div>
-      
 
       
     </main>
+    <footer id="footer">
+      <span id="loadedPokemon"></span>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
   </body>
