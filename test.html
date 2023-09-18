@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="infoContainer">
+      <div class="tabs">
+        <span class="underline-on-hover" onclick="showAbout(6)">About</span>
+        <span class="underline-on-hover" onclick="showStats(6)"
+          >Base Stats</span
+        >
+        <span class="underline-on-hover" onclick="showEvos(6)">Evolution</span>
+        <span class="underline-on-hover">Moves</span>
+      </div>
+      <div class="infoContent" id="infoContent">
+        <div class="d-flex justify-center align-center evolutionTree">
+          <div class="d-flex flex-dir-col justify-center align-center">
+            <div>
+              <img
+                class="evoArt"
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
+                alt=""
+              />
+              <p>Charmander</p>
+            </div>
+
+          </div>
+
+
+          <div>
+          <div class="d-flex flex-dir-col justify-center align-center">
+            <img
+              class="evoArt"
+              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png"
+              alt=""
+            />
+            <p>Charmeleon</p>
+          </div>
+          <div class="d-flex flex-dir-col justify-center align-center">
+            <img class="evoTo" src="./img/fast-forward.png" alt="" />
+            <p>reach Lvl 16</p>
+          </div>
+        </div>
+
+        <div>
+            <div class="d-flex flex-dir-col justify-center align-center">
+              <img
+                class="evoArt"
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png"
+                alt=""
+              />
+              <p>Charizard</p>
+            </div>
+            <div class="d-flex flex-dir-col justify-center align-center">
+              <img class="evoTo" src="./img/fast-forward.png" alt="" />
+              <p>reach Lvl 36</p>
+            </div>
+          </div>
+        
+
+        </div>
+      </div>
+      <div class="d-flex align-center justify-sb closeContainer">
+        <img
+          src="./img/icon/xmark-solid.svg"
+          class="icon button p-8 col-w"
+          onclick="closeDetailedView()"
+        />
+        <div class="d-flex shiny">
+          <span>Shiny Form:</span>
+          <img
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/6.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

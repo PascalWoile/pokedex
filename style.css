@@ -175,9 +175,10 @@ table{
 }
 
 .evoArt{
-    max-width: 70px;
-    max-height: 70px;
+    max-width: 56px;
+    max-height: 56px;
 }
+
 
 .tabs{
     display: flex;
@@ -343,13 +344,13 @@ gap: 88px;
 
 .evolutionTree{
     gap: 16px;
-    flex-wrap: wrap;
-    height: 100px;
+    margin: 16px;
 }
 
 .evoTo{
-    height: 30px;
+    height: 20px;
 }
+
 
 .movesContainer{
     display: flex;
@@ -757,4 +758,8 @@ gap: 88px;
   #pkmnTypeContainer{
     display: flex;
     gap: 8px;
+  }
+
+  .f-size10{
+    font-size: 13px !important;
   }

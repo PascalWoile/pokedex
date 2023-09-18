@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="fonts.css" />
   </head>
-  <body id="body" onload="loadingScreen()">
-    <div id="loadingScreen">
+  <body id="body" onload="loadingScreen(151, 1)">
+    <div id="loadingScreen" class="d-none">
       <div id="loadingContent">
         <span>loading...</span>
         <img class="lds-hourglass" id="loaderBall" src="./img/icon/pokeball-loader.png" alt="">
@@ -43,5 +43,7 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
+    <script src="templateFunctions.js"></script>
+    <script src="assistfunctions.js"></script>
   </body>
 </html>
