@@ -52,3 +52,10 @@ async function getEvoChain(url){
   baseFormName = EvoChainResponseAsJSON['chain']['species']['name'];
   firstEvoCheck = EvoChainResponseAsJSON['chain']['evolves_to'];
 }
+
+function typeLoop(type, typeContainer, i){
+  typeContainer.innerHTML += displayTypes(i, type);
+    document
+      .getElementById(`typeContainer${i}`)
+      .classList.add(`bgType-${type}`);
+}

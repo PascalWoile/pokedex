@@ -63,12 +63,12 @@ function displayDetails(id, displayedId){
   <div class="pokemonCard">
 <div id="detailBg${id}" class="pokemon">
   <div class="nav-arrows">
-    <img
+    <img onclick="loadDetailedView(${id-1})"
       class="icon filt-i"
       src="./img/icon/arrow-left-solid.svg"
       alt=""
     />
-    <img
+    <img onclick="loadDetailedView(${id+1})"
       class="icon filt-i"
       src="./img/icon/arrow-right-solid.svg"
       alt=""
