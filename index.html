@@ -7,8 +7,10 @@
     <link rel="shortcut icon" href="./img/icon/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="fonts.css" />
+    <link rel="stylesheet" href="substyle.css">
+    <link rel="stylesheet" href="bgstyle.css">
   </head>
-  <body id="body" onload="loadingScreen(151, 1)">
+  <body id="body" onload="loadingScreen(30, 1)">
     <div id="loadingScreen" class="d-none">
       <div id="loadingContent">
         <span>loading...</span>
@@ -19,8 +21,8 @@
       <div>
         <img class="pkmnHeadline" src="./img/PokeDexHead.png" alt="">
         <div>
-          <input type="text" placeholder="search for Pokémon...">
-          <button type="submit">Search</button>
+          <input id="search" type="text" placeholder="search for Pokémon..." >
+          <button onclick="startFilter()" id="searchButton" type="submit">Search</button>
         </div>
       </div>
         <img class="ballIcon" src="./img/icon/favicon.png" alt="">
@@ -30,6 +32,10 @@
           <span>load more Pokémon</span>
         </div>
     </header>
+    <div id="searchingScreen" class="d-none">
+      <span>searching...</span>
+      <img class="lds-hourglass" id="loaderBall" src="./img/icon/pokeball-loader.png" alt="">
+    </div>
     <div id="detailedViewContent" class="d-none">
 
     </div>
@@ -42,6 +48,7 @@
       <span id="loadedPokemon"></span>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="variables.js"></script>
     <script src="script.js"></script>
     <script src="templateFunctions.js"></script>
     <script src="assistfunctions.js"></script>

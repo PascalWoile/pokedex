@@ -1,0 +1,278 @@
+html {
+  position: relative;
+}
+
+h2 {
+  font-size: 1.1em !important;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto";
+  background-color: rgb(12, 8, 30);
+  min-height: 100vh;
+}
+
+/* ===== Scrollbar CSS ===== */
+
+*::-webkit-scrollbar {
+  width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(23, 83, 107);
+}
+
+.pos-abs {
+  position: absolute !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.d-none {
+  display: none !important;
+}
+
+.flex-dir-col {
+  flex-direction: column !important;
+}
+
+.justify-center {
+  justify-content: center !important;
+}
+
+.justify-sb {
+  justify-content: space-between !important;
+}
+
+.align-center {
+  align-items: center !important;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.about {
+  padding: 0 8px 0 16px;
+}
+
+.t-end {
+  text-align: end;
+}
+
+.t-center {
+  text-align: center;
+}
+
+table {
+  border-spacing: 8px;
+  text-align: end;
+}
+
+.ml-16 {
+  margin-left: 16px !important;
+}
+
+.mt-16 {
+  margin-top: 16px !important;
+}
+
+.mt-24 {
+  margin-top: 24px !important;
+}
+
+.mb-16 {
+  margin-bottom: 16px !important;
+}
+
+.col-w {
+  color: white !important;
+}
+
+.p-24 {
+  padding: 24px !important;
+}
+
+.p-16 {
+  padding: 16px !important;
+}
+
+.p-8 {
+  padding: 8px !important;
+}
+
+.underline-on-hover {
+  display: inline-block;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+}
+
+.underline-on-hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 20px;
+  width: 100%;
+  height: 3px;
+  background: rgb(53, 53, 202);
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.225s ease-in-out;
+}
+
+.underline-on-hover:hover {
+  cursor: pointer;
+}
+
+.underline-on-hover:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.underline-on-hover.active {
+  border-bottom: solid 3px rgb(53, 53, 202);
+}
+
+@media (max-width: 770px) {
+  .pkmnHeadline,
+  .ballIcon {
+    height: 50px !important;
+  }
+
+  #loadingScreen span {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 663px) {
+  .pkmnHeadline,
+  .ballIcon {
+    height: 40px !important;
+  }
+
+  #clickBlocker {
+    position: absolute;
+    font-size: 24px;
+    left: -17px !important;
+    background-color: rgba(250, 250, 250, 0);
+    z-index: 99;
+    text-align: center;
+    height: 50px;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 0 !important;
+  }
+
+  .ballIcon {
+    display: none;
+  }
+
+  .loadingInsideContainer {
+    flex-direction: row !important;
+    gap: 28px !important;
+  }
+
+  #loadingScreen span {
+    font-size: 50px !important;
+  }
+}
+.loadIcon {
+  width: 50px;
+}
+
+.loadingInsideContainer {
+  align-items: center;
+  position: relative;
+  filter: invert(1);
+}
+
+.loadIcon:hover {
+  cursor: pointer;
+}
+
+#clickBlocker {
+  position: absolute;
+  font-size: 24px;
+  top: 2px;
+  background-color: rgba(250, 250, 250, 0);
+  z-index: 99;
+  text-align: center;
+  height: 50px;
+  color: white;
+}
+
+#clickBlocker:hover {
+  cursor: not-allowed;
+}
+
+.filtered {
+  filter: opacity(0.5);
+}
+
+.p-top-144 {
+  padding-top: 144px !important;
+}
+
+#loadingScreen {
+  background-color: rgb(25, 27, 29);
+  position: absolute;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 200px;
+  gap: 80px;
+}
+
+#loadingContent {
+  position: sticky;
+  top: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#loadingScreen span {
+  color: white;
+  font-size: 100px;
+}
+
+#loaderBall {
+  width: 20%;
+}
+
+.lds-hourglass {
+  display: inline-block;
+  position: relative;
+  animation: lds-hourglass 1.2s infinite;
+}
+.lds-hourglass:after {
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  margin: 8px;
+  box-sizing: border-box;
+  border: 32px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-hourglass 1.2s infinite;
+}

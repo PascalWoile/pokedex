@@ -1,27 +1,3 @@
-let loadedPokemon = 0;
-
-let pkmnName;
-let pkmnNameGer;
-let pkmnArtWorkSrc;
-let pkmnTypeMain;
-let pkmnShinyForm;
-let details;
-let pkmnFlavor;
-let pkmnGenus;
-let pkmnHeight;
-let pkmnWeight;
-
-let types;
-let pkmnId;
-
-let pokemonName;
-let pokemonId;
-let pokemonMiniSprite;
-let pokemonType;
-
-let baseFormName;
-let firstEvoCheck;
-
 function createChart(ctx, HP, ATK, DEF, SPATK, SPDEF, SPEED) {
   new Chart(ctx, {
     type: "bar",
@@ -52,7 +28,7 @@ function createChart(ctx, HP, ATK, DEF, SPATK, SPDEF, SPEED) {
       scales: {
         x: {
           suggestedMin: 0,
-          suggestedMax: 150,
+          suggestedMax: 200,
         },
       },
     },
@@ -77,16 +53,10 @@ async function loadPokemon(count, start) {
     let mainContent = document.getElementById("mainContent");
     await fetchURLPkmn(`https://pokeapi.co/api/v2/pokemon/${i}`);
     loadedPokemon += 1;
-    mainContent.innerHTML += displayPreview(
-      i,
-      pokemonId,
-      pokemonMiniSprite,
-      pokemonName
-    );
+    mainContent.innerHTML += displayPreview(i, pokemonId, pokemonMiniSprite, pokemonName);
     document.getElementById(`cardBg${i}`).classList.add(`bg-${pokemonType}`);
   }
-  document.getElementById("loadedPokemon").innerHTML =
-    pokemonCount(loadedPokemon);
+
 }
 
 function miniLoaderAnimation() {
@@ -95,7 +65,7 @@ function miniLoaderAnimation() {
 }
 
 function loadMorePokemon() {
-  loadingScreen(50, loadedPokemon);
+  loadingScreen(30, loadedPokemon);
   loadedPokemon--;
 }
 
@@ -169,91 +139,39 @@ async function showEvos(id) {
   let content = document.getElementById("infoContent");
   await fetchURLSpecies(`https://pokeapi.co/api/v2/pokemon-species/${id}`); //neu
   await getEvoChain(`https://pokeapi.co/api/v2/pokemon-species/${id}`); //neu
-
-  if (firstEvoCheck.length === 0) {
+  if (firstEvoCheck.length === 0 || firstEvoCheck === undefined) {
     content.innerHTML = displayNoEvo();
   } else {
-    //hier evtl. fetchurlpkmn anwenden und an dortige Variablen anpassen
-    console.log("ES GIBT EINE EVO!");
     let firstEvoName = firstEvoCheck[0]["species"]["name"];
-    let baseFormUrl = `https://pokeapi.co/api/v2/pokemon/${baseFormName}`;
-    let firstEvoUrl = `https://pokeapi.co/api/v2/pokemon/${firstEvoName}`;
+    await fetchFirstEvoURL(`https://pokeapi.co/api/v2/pokemon/${baseFormName}`, `https://pokeapi.co/api/v2/pokemon/${firstEvoName}`)
     firstEvoName = firstLettertoCapital(firstEvoName);
     baseFormName = firstLettertoCapital(baseFormName);
-    let baseFormResponse = await fetch(baseFormUrl);
-    let firstEvolutionResponse = await fetch(firstEvoUrl);
-    let baseFormJSON = await baseFormResponse.json();
-    let firstEvoJSON = await firstEvolutionResponse.json();
-    let baseFormImg = baseFormJSON["sprites"]["other"]["official-artwork"]["front_default"];
-    let firstEvoImg = firstEvoJSON["sprites"]["other"]["official-artwork"]["front_default"];
-    let firstEvoReq = firstEvoCheck[0]["evolution_details"][0];
-    let firstEvoReqLvl = firstEvoReq["min_level"];
-    let firstEvoItemCheck = firstEvoReq["item"];
-    content.innerHTML = displayEvolutionTree(firstEvoItemCheck, baseFormImg, baseFormName, firstEvoItemCheck, firstEvoImg, firstEvoName, firstEvoReqLvl);
-    secondEvo(firstEvoCheck);
+    content.innerHTML = displayEvolutionTree(firstEvoItemCheck, baseFormImg, baseFormName, firstEvoItemCheck, firstEvoImg, firstEvoName, firstEvoReqLvl, baseFormId, firstEvoId);
+    secondEvo();
   }
 }
 
-async function secondEvo(firstEvoCheck) {
-  let secondEvoCheck = firstEvoCheck[0]["evolves_to"];
+async function secondEvo() {
+  let evolutionTree = document.getElementById("evolutionTree");
   if (secondEvoCheck.length === 0) {
-    console.log("ES GIBT NUR EINE EVO, KEINE ZWEITE!");
+    return;
   } else {
-    console.log("HURRA! ES GIBT ZWEI EVOS!");
-
     let secondEvoName = secondEvoCheck[0]["species"]["name"];
-    let secondEvoUrl = `https://pokeapi.co/api/v2/pokemon/${secondEvoName}`;
-    secondEvoName =
-      secondEvoName.charAt(0).toUpperCase() + secondEvoName.slice(1);
-    let secondEvolutionResponse = await fetch(secondEvoUrl);
-    let secondEvoJSON = await secondEvolutionResponse.json();
-    let secondEvoImg = secondEvoJSON["sprites"]["other"]["official-artwork"]["front_default"];
-    let secondEvoReq = secondEvoCheck[0]["evolution_details"][0];
-    let secondEvoItemCheck = secondEvoReq["item"];
-    let secondEvoReqLvl = secondEvoReq["min_level"];
+    await fetchSecondEvoURL(`https://pokeapi.co/api/v2/pokemon/${secondEvoName}`)
+    secondEvoName = firstLettertoCapital(secondEvoName);
+    evolutionTree.innerHTML += displaySecondEvoTree(secondEvoItemCheck, secondEvoImg, secondEvoName, secondEvoReqLvl, secondEvoId);
+    
+}
+}
 
-    console.log(secondEvoItemCheck);
-    if (secondEvoItemCheck != null) {
-      console.log("ITEM ZUR ZWEITEN EVO ERFORDERLICH");
-
-      document.getElementById("evolutionTree").innerHTML += `
-          <div class="d-flex flex-dir-col justify-center align-center"> 
-          <img class="evoTo" src="./img/fast-forward.png" alt="">
-          <span class="f-size10">${secondEvoItemCheck["name"]}</span>
-          </div>
-          <div class="d-flex flex-dir-col justify-center align-center">
-            <img class="evoArt" src="${secondEvoImg}" alt="">
-            <span">${secondEvoName}</span>
-          </div>
-        </div>  
-  `;
-    } else if (secondEvoReqLvl != null) {
-      document.getElementById("evolutionTree").innerHTML += `
-          <div class="d-flex flex-dir-col justify-center align-center"> 
-          <img class="evoTo" src="./img/fast-forward.png" alt="">
-          <span class="f-size10">lvl ${secondEvoReqLvl}</span>
-          </div>
-          <div class="d-flex flex-dir-col justify-center align-center">
-            <img class="evoArt" src="${secondEvoImg}" alt="">
-            <span>${secondEvoName}</span>
-          </div>
-        </div>  
-  `;
-    } else {
-      console.log("special ERFORDERLICH");
-      document.getElementById("evolutionTree").innerHTML += `
-          <div class="d-flex flex-dir-col justify-center align-center"> 
-          <img class="evoTo" src="./img/fast-forward.png" alt="">
-          <span class="f-size10">special </span>
-          </div>
-          <div class="d-flex flex-dir-col justify-center align-center">
-            <img class="evoArt" src="${secondEvoImg}" alt="">
-            <span>${secondEvoName}</span>
-          </div>
-        </div>  
-  `;
-    }
+async function showMoves(id){
+  let content = document.getElementById("infoContent");
+  content.innerHTML = createMovesContainer();
+  let movesContainer = document.getElementById('movesContainer');
+  await fetchURLPkmn(`https://pokeapi.co/api/v2/pokemon/${id}`);
+  for (let i = 0; i < pokemonMoves.length; i++) {
+    const move = pokemonMoves[i]['move']['name'];
+    movesContainer.innerHTML += displayMoves(move);
   }
 }
 
-//SUchfunktion implementieren
