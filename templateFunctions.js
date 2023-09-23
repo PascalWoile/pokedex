@@ -210,7 +210,7 @@ function displayEvolutionTree(
     }
   }
 }
-//HIER
+
 function displaySecondEvoTree(
   secondEvoItemCheck,
   secondEvoImg,

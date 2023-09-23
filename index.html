@@ -4,46 +4,65 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokédex</title>
-    <link rel="shortcut icon" href="./img/icon/favicon.png" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="./img/icon/favicon.png"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="fonts.css" />
-    <link rel="stylesheet" href="substyle.css">
-    <link rel="stylesheet" href="bgstyle.css">
+    <link rel="stylesheet" href="substyle.css" />
+    <link rel="stylesheet" href="bgstyle.css" />
   </head>
   <body id="body" onload="loadingScreen(30, 1)">
     <div id="loadingScreen" class="d-none">
       <div id="loadingContent">
         <span>loading...</span>
-        <img class="lds-hourglass" id="loaderBall" src="./img/icon/pokeball-loader.png" alt="">
+        <img
+          class="lds-hourglass"
+          id="loaderBall"
+          src="./img/icon/pokeball-loader.png"
+          alt=""
+        />
       </div>
     </div>
     <header id="header">
       <div>
-        <img class="pkmnHeadline" src="./img/PokeDexHead.png" alt="">
+        <img class="pkmnHeadline" src="./img/PokeDexHead.png" alt="" />
         <div>
-          <input id="search" type="text" placeholder="search for Pokémon..." >
-          <button onclick="startFilter()" id="searchButton" type="submit">Search</button>
+          <input id="search" type="text" placeholder="search for Pokémon..." />
+          <button onclick="startFilter()" id="searchButton" type="submit">
+            Search
+          </button>
         </div>
       </div>
-        <img class="ballIcon" src="./img/icon/favicon.png" alt="">
-        <div  class="loadingInsideContainer d-flex justify-center  flex-dir-col gap5">
-          <div id="clickBlocker" class="d-none">loading...</div>
-          <img onclick="loadMorePokemon()" id="miniLoader" class="loadIcon" src="./img/icon/reload-anim.gif" alt="">
-          <span>load more Pokémon</span>
-        </div>
+      <img class="ballIcon" src="./img/icon/favicon.png" alt="" />
+      <div
+        class="loadingInsideContainer d-flex justify-center flex-dir-col gap5"
+      >
+        <div id="clickBlocker" class="d-none">loading...</div>
+        <img
+          onclick="loadMorePokemon()"
+          id="miniLoader"
+          class="loadIcon"
+          src="./img/icon/reload-anim.gif"
+          alt=""
+        />
+        <span>load more Pokémon</span>
+      </div>
     </header>
     <div id="searchingScreen" class="d-none">
       <span>searching...</span>
-      <img class="lds-hourglass" id="loaderBall" src="./img/icon/pokeball-loader.png" alt="">
+      <img
+        class="lds-hourglass"
+        id="loaderBall"
+        src="./img/icon/pokeball-loader.png"
+        alt=""
+      />
     </div>
-    <div id="detailedViewContent" class="d-none">
+    <div id="detailedViewContent" class="d-none"></div>
 
-    </div>
-
-    <main id="mainContent">
-
-      
-    </main>
+    <main id="mainContent"></main>
     <footer id="footer">
       <span id="loadedPokemon"></span>
     </footer>

@@ -28,7 +28,6 @@ let baseFormName;
 let firstEvoCheck;
 let secondEvoCheck;
 
-
 let baseFormImg;
 let firstEvoImg;
 let firstEvoReq;
@@ -40,4 +39,3 @@ let secondEvoImg;
 let secondEvoReq;
 let secondEvoItemCheck;
 let secondEvoReqLvl;
-
