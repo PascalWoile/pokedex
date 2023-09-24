@@ -1,4 +1,10 @@
 let loadedPokemon = 0;
+let pokemons = [];
+let alreadyFiltered = [];
+let ids = [];
+let sprites = [];
+let pkmntypes = [];
+let filtered = false;
 
 let pkmnName;
 let pkmnNameGer;

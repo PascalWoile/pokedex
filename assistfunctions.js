@@ -98,6 +98,7 @@ async function startFilter() {
   btn.disabled = false;
   toggleClass(btn, "cursor-dis");
   toggleClass(searchScreen, "d-none");
+  filtered = true;
 }
 
 function toggleClass(elem, cssClass) {
@@ -113,8 +114,9 @@ async function filterPkmn() {
   } else {
     mainContent.innerHTML = ``;
     clickBlock();
-    await searchLoop(search);
+    searchLoop(search);
     clickBlock();
+    alreadyFiltered = [];
     if (mainContent.innerHTML === "") {
       mainContent.innerHTML = noResults();
     }
@@ -125,18 +127,28 @@ function clickBlock() {
   document.getElementById("clickBlocker").classList.toggle("d-none");
 }
 
-async function searchLoop(search) {
-  for (i = 1; i < 1000; i++) {
-    await fetchURLPkmn(`https://pokeapi.co/api/v2/pokemon/${i}`);
-    let mainContent = document.getElementById("mainContent");
-    if (pokemonName.toLowerCase().startsWith(search)) {
+function searchLoop(search) {
+  for (i = 0; i < pokemons.length; i++) {
+    let pokemon = pokemons[i];
+    let id =  ids[i];
+    let sprite = sprites[i];
+    let type = pkmntypes[i];
+    if (pokemon.toLowerCase().startsWith(search) && !(alreadyFiltered.includes(pokemon))) {
       mainContent.innerHTML += displayPreview(
         i,
-        pokemonId,
-        pokemonMiniSprite,
-        pokemonName
+        id,
+        sprite,
+        pokemon,
       );
-      document.getElementById(`cardBg${i}`).classList.add(`bg-${pokemonType}`);
+      alreadyFiltered.push(pokemon);
+      document.getElementById(`cardBg${i}`).classList.add(`bg-${type}`);
     }
   }
+}
+
+function pushData(pokemons, ids, sprites, pkmntypes, pokemonName, pokemonId, pokemonMiniSprite, pokemonType){
+  pokemons.push(pokemonName);
+  ids.push(pokemonId);
+  sprites.push(pokemonMiniSprite);
+  pkmntypes.push(pokemonType);
 }

@@ -53,10 +53,17 @@ async function loadPokemon(count, start) {
     let mainContent = document.getElementById("mainContent");
     await fetchURLPkmn(`https://pokeapi.co/api/v2/pokemon/${i}`);
     loadedPokemon += 1;
+    pushData(pokemons, ids, sprites, pkmntypes, pokemonName, pokemonId, pokemonMiniSprite, pokemonType);
     mainContent.innerHTML += displayPreview(i, pokemonId, pokemonMiniSprite, pokemonName);
     document.getElementById(`cardBg${i}`).classList.add(`bg-${pokemonType}`);
   }
+}
 
+function clearArray(){
+  pokemons = [];
+  ids = [];
+  sprites = [];
+  pkmntypes = [];
 }
 
 function miniLoaderAnimation() {
@@ -65,8 +72,17 @@ function miniLoaderAnimation() {
 }
 
 function loadMorePokemon() {
-  loadingScreen(30, loadedPokemon);
-  loadedPokemon--;
+  if (filtered) {
+    document.getElementById("mainContent").innerHTML = ``
+    loadingScreen(loadedPokemon, 1)
+    filtered = false;
+    alreadyFiltered = []
+    loadedPokemon = 0;
+  } else {
+    loadingScreen(30, loadedPokemon);
+    loadedPokemon--;
+  }
+  
 }
 
 function stopMiniLoaderAnimation() {
@@ -137,8 +153,8 @@ function closeDetailedView() {
 
 async function showEvos(id) {
   let content = document.getElementById("infoContent");
-  await fetchURLSpecies(`https://pokeapi.co/api/v2/pokemon-species/${id}`); //neu
-  await getEvoChain(`https://pokeapi.co/api/v2/pokemon-species/${id}`); //neu
+  await fetchURLSpecies(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
+  await getEvoChain(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
   if (firstEvoCheck.length === 0 || firstEvoCheck === undefined) {
     content.innerHTML = displayNoEvo();
   } else {

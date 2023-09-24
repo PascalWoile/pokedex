@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="substyle.css" />
     <link rel="stylesheet" href="bgstyle.css" />
   </head>
-  <body id="body" onload="loadingScreen(30, 1)">
+  <body id="body" onload="loadingScreen(30, 1); clearArray()">
     <div id="loadingScreen" class="d-none">
       <div id="loadingContent">
         <span>loading...</span>
@@ -38,11 +38,11 @@
       </div>
       <img class="ballIcon" src="./img/icon/favicon.png" alt="" />
       <div
+        onclick="loadMorePokemon()"
         class="loadingInsideContainer d-flex justify-center flex-dir-col gap5"
       >
         <div id="clickBlocker" class="d-none">loading...</div>
         <img
-          onclick="loadMorePokemon()"
           id="miniLoader"
           class="loadIcon"
           src="./img/icon/reload-anim.gif"
